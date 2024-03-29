@@ -500,6 +500,15 @@
     });
 
 </script>
+    <script>
+        window.onload = function() {
+            var url = window.location.href;
+            if (url.endsWith(".html")) {
+                var newUrl = url.substring(0, url.length - 5); // Remove ".html"
+                window.location.href = newUrl;
+            }
+        }
+    </script>
 <script>
   // JavaScript
 document.addEventListener("DOMContentLoaded", function() {
