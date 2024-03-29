@@ -1,0 +1,524 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-dOcMsW6gvztOMgw/Z+Mx4MteP5pBr4KDmHK+G8txX5ZfPW1VesRlvpa2z+yPKLtgmJgwGvCtSmxTj3AA2wYUqg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <title>My Portfolio</title>
+    <style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+    
+    
+        :root{
+            --color-white: #fff;
+            --color-dark1: rgb(39, 39, 39);
+            --color-dark2: #2d2d2d;
+            --color-dark3: #414141;
+            --color-dark4: #1c1c1c;
+            --color-dark5: #343434;
+            --color-purple: white;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: var(--color-dark1);
+            color: var(--color-white);
+            font-family: "Poppins", sans-serif;
+            height: 1800px;
+        }
+        .img_logo_header{
+            width: 70px;
+        }
+        .header,
+        .navigation_header{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+        .header{
+            background-color: var(--color-dark2);
+            justify-content: space-between;
+            padding: 0 10%;
+            height: 5.5em;
+            box-shadow: 1px 1px 4px var(--color-dark4);
+        }
+        .navigation_header{
+            gap: 3em;
+            z-index: 2;
+        }
+        .content{
+            padding-top: 5em;
+            text-align: center;
+            height: 100vh;
+            transition: 2s;
+        }
+        .navigation_header a{
+            text-decoration: none;
+            color: var(--color-purple);
+            transition: 1s;
+            font-weight: bold;
+            margin-left: 1%;
+            font-family: maroco;
+        }
+        
+        .navigation_header a:hover{
+            color: var(--color-white);
+        }
+        .active{
+            background: var(--color-dark3);
+            padding: 10px;
+            border-radius: 10px;
+        }
+        .btn_icon_header{
+            background: transparent;
+            border: none;
+            color: var(--color-white);
+            cursor: pointer;
+            display: none;
+        }
+        .bima{
+         font-size: 25px;
+         font-family: monaco;
+        
+         
+        }
+        .bima:hover{
+          background-color: crimson;
+          padding: 10px;
+          border: 3px solid black;
+          box-shadow: 10px 10px 10px black;
+          transition: 1s;
+          border-radius: 5px;
+          
+        }
+        .terbaru{
+          margin-top: 6%;
+          text-decoration: underline;
+          text-underline-position: under;
+          text-decoration-skip: ink;
+         
+        }
+        
+   
+        @media screen and (max-width: 768px) {
+            .navigation_header{
+                position: absolute;
+                flex-direction: column !important;
+                top: 0;
+                background: var(--color-dark5);
+                height: 100%;
+                width: 25vh;
+                padding: 1em;
+                animation-duration: 1s;
+                margin-left: -100vw;
+            }
+            .btn_icon_header{
+                display: block;
+            }
+            #ic {
+              padding: 10px;
+            
+            }
+            #lig {
+              margin-left: 10%;
+            }
+            #ip {
+              margin-left: padding: 20px;
+            }
+           #ali{
+             margin-top: 1%;
+           }
+           .lgn_btn{
+             text-decoration: none;
+             padding: 6px;
+             font-family: monaco;
+             font-weight: 900;
+             color: white;
+             margin-top: -15%;
+             margin-left: 29%;
+            position: absolute;
+            border: 2px solid white;
+            background-color: green;
+            border-radius: 7px;
+
+           }
+           #it {
+            padding: 4px;
+           }
+           .lgn_btno{
+             text-decoration: none;
+             padding: 6px;
+             font-family: monaco;
+             font-weight: 900;
+             color: white;
+             margin-top: -13.6%;
+             margin-left: 9%;
+            position: absolute;
+           }
+          
+           
+
+        }
+@media(max-width: 610px){
+  .terbaru{
+    margin-top: 3%;
+    
+  
+
+  }
+}
+        
+        @keyframes showSidebar {
+            from {margin-left: -100vw;}
+            to {margin-left: -10vw;}
+        }
+    </style>
+</head>
+<body id="body">
+    <div class="header" id="header">
+        <button onclick="toggleSidebar()" class="btn_icon_header">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+            </svg>
+        </button>
+        <div class="logo_header">
+<h2 id="brand">@Bimaeo_</h2>
+        </div>
+        
+        <div class="navigation_header" id="navigation_header">
+            <button onclick="toggleSidebar()" class="btn_icon_header">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+                    <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                </svg>
+            </button>
+            
+            
+            <a class="bima" href="#section1" class="parallel-text">
+      <i id="ic"class="fas fa-home home-icon"></i>Home
+    </a>
+         
+            
+            
+<a id="ali"class="bima" href="#section2" class="parallel-text">
+      <i id="ic"class="fas fa-gamepad gamepad-icon"></i>Skill's
+    </a>
+            
+     
+
+
+           <a class="bima" href="#section3" class="parallel-text">
+                         <i id="ic" class="fas fa-user home-user"></i>About
+                       </a>
+        </div>
+    </div>
+    <div tabindex="0" class="content" onfocus="closeSidebar()" id="content">
+      
+   <div style="margin-top:-10%;">
+
+<div id="hiddenElement">
+<img class="photo" src="AryaBima.jpg">
+<h1 id="section1"class="myself">Im <strong style="color: #09c372">Arya Bima Sugiyarto</strong></h1>
+<p style="font-weight:bold;"class="typing-animation">Software Engineer & Love You Anytime</p>
+
+<h2 id="section2" style="text-align:left;margin-top:20%;margin-left: 3%;" class="myself">My <strong style="color: #09c372">Skills</strong> :</h2>
+
+<div class="skill">
+  <div class="skill-name">HTML</div>
+  <div class="skill-bar">
+    <div class="skill-progress html-progress" style="width: 95%;"></div>
+  </div>
+</div>
+
+<div style="margin-top:-5%" class="skill">
+  <div class="skill-name">CSS</div>
+  <div class="skill-bar">
+    <div class="skill-progress css-progress" style="width: 90%;"></div>
+  </div>
+</div>
+
+<div style="margin-top:-5%"class="skill">
+  <div class="skill-name">Javascript</div>
+  <div class="skill-bar">
+    <div class="skill-progress js-progress" style="width: 95%;"></div>
+  </div>
+</div>
+
+<div style="margin-top:-5%" class="skill">
+  <div class="skill-name">PHP</div>
+  <div class="skill-bar">
+    <div class="skill-progress php-progress" style="width: 55%;"></div>
+  </div>
+</div>
+
+<div style="margin-top:-5%"class="skill">
+  <div class="skill-name">Python</div>
+  <div class="skill-bar">
+    <div class="skill-progress python-progress" style="width: 65%;"></div>
+  </div>
+</div>
+
+<div style="margin-top:-5%" class="skill">
+  <div class="skill-name">Java</div>
+  <div class="skill-bar">
+    <div class="skill-progress java-progress" style="width: 50%;"></div>
+  </div>
+</div>
+
+<div style="margin-top:-5%"class="skill">
+  <div class="skill-name">Pawno</div>
+  <div class="skill-bar">
+    <div class="skill-progress pawno-progress" style="width: 97%;"></div>
+  </div>
+  <h2 id="section3"style="text-align:left;margin-top:20%;" class="myself">About  <strong style="color: #09c372">Myself</strong> :</h2>
+</div>
+<p style="text-align: left;padding:15px;margin-top:-5%;">My full name is Arya Bima Sugiyarto. People usually call me <strong>Bima A.k.A Big Mothefuckin' Ass</strong>. I'm the first child in my family. I was born in Tangerang, on November 12th, 2008. Currently, I live in West Tangerang, Banten.
+<br><br>
+      I am also interested in Programming. Currently, I have a portfolio of professional Programmer for social media, and so on. I think that's all from me. Nice to meet you. Thank you!</p>
+
+<div style="margin-right: 65%;margin-top:-2%;">
+  <a style="text-decoration:none;color:#ffffff;padding:10px"href="https://www.instagram.com/bimaeo_?igsh=anoyZWtvdXNkbWlq" target="_blank" rel="noopener noreferrer">
+  <i style="font-size:30px;" class="fab fa-instagram"></i>
+</a>
+
+<!-- WhatsApp Icon -->
+<a style="text-decoration:none;color:#09c372;padding:10px"="https://wa.me/+6288210385210" target="_blank" rel="noopener noreferrer">
+  <i style="font-size:30px;" class="fab fa-whatsapp"></i>
+</a>
+
+<!-- GitHub Icon -->
+<a style="text-decoration:none;color:white ;padding:10px"href="https://github.com/pocongkeliling" target="_blank" rel="noopener noreferrer">
+  <i style="font-size:30px;"class="fab fa-github"></i>
+</a>
+</div>
+</div>
+
+</div>
+
+
+
+</div>
+
+<style>
+  .dropdown-item{
+    
+    display: flex;
+    font-weight: 900;
+  
+  }
+</style>
+
+
+
+  </div>
+</div>
+
+
+</div>
+<style>
+.skill {
+  margin-bottom: 10px;
+  padding: 15px;
+}
+
+.skill-name {
+  font-weight: bold;
+  text-align: left;
+}
+
+.skill-bar {
+  background-color: #f0f0f0;
+  height: 20px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.skill-progress {
+  background-color: #4caf50;
+  height: 100%;
+}
+.css-progress {
+  background-color: #264de4;
+}
+.html-progress {
+  background-color: #e34c26;
+}
+.js-progress {
+  background-color: #f0db4f;
+}
+.php-progress {
+  background-color: #8892be;
+}
+.python-progress {
+  background-color: #306998;
+}
+
+.java-progress {
+  background-color: red;
+}
+.pawno-progress {
+  background-color: #ff8c00;
+}
+.drawing-progress {
+  background-color: blue;
+}
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 3.1rem;
+  margin-top: 10%;
+  margin-top: 5%;
+}
+
+.card {
+  width:98%;
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover .card-img-top {
+  transform: scale(1.1);
+}
+
+.card-img-top {
+  width: 100%;
+  transition: transform 0.3s ease;
+}
+
+.card-body {
+  padding: 1rem;
+  position: absolute;
+  bottom: -100%;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  transition: bottom 0.3s ease;
+}
+
+.card:hover .card-body {
+  bottom: 0;
+}
+#brand {
+  font-weight: bold;
+  font-size: 17.5px;
+  display: flex;
+  align-items: center;
+  color: #09c372;
+}
+#hiddenElement {
+  display: none;
+  margin-right: -100%;
+  animation: slideInFromRight 1s forwards; /* menerapkan animasi */
+}
+.photo {
+  width: 75%;
+  border: 1px solid white;
+  border-bottom: 30px solid white;
+  
+}
+.myself {
+  color: white;
+  font-weight: bold;
+  margin-top: 5%;
+  
+}
+/* CSS */
+@keyframes typing {
+  0% {
+    width: 0;
+  }
+  50% {
+    width: 100%;
+  }
+  100% {
+    width: 100%; /* Tetap diam setelah mencapai lebar maksimum */
+  }
+}
+
+.typing-animation {
+  overflow: hidden;
+  border-right: 3px solid black; /* Garis imitasi cursor */
+  white-space: nowrap; /* Agar teks tidak melompat baris */
+  animation: typing 9s steps(40, end); /* Waktu animasi dan jumlah langkah */
+}
+@keyframes slideInFromRight {
+  0% {
+    margin-right: -100%; /* mulai dari luar jendela browser */
+  }
+  100% {
+    margin-right: 0; /* akhir di sebelah kanan */
+  }
+}
+</style>
+
+
+</body>
+<script>
+    var header           = document.getElementById('header');
+    var navigationHeader = document.getElementById('navigation_header');
+    var content          = document.getElementById('content');
+    var showSidebar      = false;
+
+    function toggleSidebar()
+    {
+        showSidebar = !showSidebar;
+        if(showSidebar)
+        {
+            navigationHeader.style.marginLeft = '-10vw';
+            navigationHeader.style.animationName = 'showSidebar';
+            content.style.filter = 'blur(2px)';
+        }
+        else
+        {
+            navigationHeader.style.marginLeft = '-100vw';
+            navigationHeader.style.animationName = '';
+            content.style.filter = '';
+        }
+    }
+
+    function closeSidebar()
+    {
+        if(showSidebar)
+        {
+            showSidebar = true;
+            toggleSidebar();
+        }
+    }
+
+    window.addEventListener('resize', function(event) {
+        if(window.innerWidth > 768 && showSidebar) 
+        {  
+            showSidebar = true;
+            toggleSidebar();
+        }
+    });
+
+</script>
+<script>
+  // JavaScript
+document.addEventListener("DOMContentLoaded", function() {
+  var hiddenElement = document.getElementById('hiddenElement');
+
+  window.addEventListener('touchstart', function() {
+    if (hiddenElement.style.display !== 'block') {
+      hiddenElement.style.display = 'block'; // Tampilkan elemen
+    }
+  });
+});
+</script>
+<script>
+// Mendeteksi apakah pengguna berada di desktop atau laptop
+if (window.innerWidth > 768 && window.innerHeight > 576) {
+    // Jika lebar dan tinggi layar melebihi nilai tertentu, kosongkan halaman web
+    document.body.innerHTML = '';
+    alert("Gabisa Dibuka DiLayar Lebar!")
+}
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</html>
